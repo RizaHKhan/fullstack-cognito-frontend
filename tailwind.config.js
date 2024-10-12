@@ -16,20 +16,20 @@ export default {
     },
     extend: {
       spacing: {
-        '128': '32rem',
-        '144': '36rem',
+        128: '32rem',
+        144: '36rem',
       },
       borderRadius: {
         '4xl': '2rem',
-      }
+      },
     },
     colors: {
       transparent: 'transparent',
       gray: colors.gray,
       red: colors.red,
       blue: colors.sky,
-      yellow: colors.amber
-    }
+      yellow: colors.amber,
+    },
   },
   plugins: [],
 }
