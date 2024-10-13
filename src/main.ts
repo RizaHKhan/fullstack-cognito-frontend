@@ -10,9 +10,9 @@ import router from './router'
 Amplify.configure({
   Auth: {
     Cognito: {
-      userPoolId: 'us-east-1_zL7inxEtR',
-      userPoolClientId: 'srh0kfc2srcntj8eb1fb347lp',
-      identityPoolId: 'us-east-1:59ba4416-898d-4a96-a8ea-5e27f3225f68',
+      userPoolId: 'us-east-1_8vOdgZR0y',
+      userPoolClientId: '75mkgjb5dbo53s8oesdqts33t9',
+      identityPoolId: 'us-east-1:c19e2558-cbad-4f7b-a144-d2b32eb2d792',
       loginWith: {
         email: true,
       },
