@@ -12,7 +12,7 @@ const logout = async () => {
 </script>
 
 <template>
-  <div class="h-screen bg-gradient-to-b from-gray-100 to-gray-300 p-3">
+  <div class="h-screen bg-gradient-to-b from-blue-100 to-blue-300 p-3">
     <header>
       <div class="flex flex-col justify-start h-full">
         <nav class="flex flex-row gap-2 justify-end text-gray-500">
