@@ -22,7 +22,7 @@ Amplify.configure({
           required: true,
         },
       },
-      allowGuestAccess: true,
+      allowGuestAccess: false,
       passwordFormat: {
         minLength: 8,
         requireLowercase: true,

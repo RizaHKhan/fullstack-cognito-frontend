@@ -1,27 +1,15 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { RouterLink, RouterView } from 'vue-router'
-import { signOut, getCurrentUser } from 'aws-amplify/auth'
+import { signOut } from 'aws-amplify/auth'
 
 const router = useRouter()
-const showSignUp = ref(false)
 
 const logout = async () => {
   console.log('logging out')
   await signOut()
   router.push({ name: 'home' })
 }
-
-onMounted(async () => {
-  // await autoSignIn()
-  const { userId } = await getCurrentUser()
-
-  if (!userId) {
-    router.push({ name: 'home' })
-    showSignUp.value = true
-  }
-})
 </script>
 
 <template>
@@ -32,7 +20,7 @@ onMounted(async () => {
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/about">About</RouterLink>
           <RouterLink to="/dashboard">Dashboard</RouterLink>
-          <RouterLink v-if="showSignUp" to="/signup">SignUp</RouterLink>
+          <RouterLink to="/signup">SignUp</RouterLink>
           <button @click="logout">Log out</button>
         </nav>
       </div>
