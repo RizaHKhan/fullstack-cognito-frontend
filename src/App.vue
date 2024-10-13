@@ -6,7 +6,6 @@ import { signOut } from 'aws-amplify/auth'
 const router = useRouter()
 
 const logout = async () => {
-  console.log('logging out')
   await signOut()
   router.push({ name: 'home' })
 }
