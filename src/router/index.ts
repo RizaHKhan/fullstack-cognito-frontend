@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useAuthStore } from '../stores/auth'
+import { fetchAuthSession } from 'aws-amplify/auth'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -22,6 +22,14 @@ const router = createRouter({
       },
     },
     {
+      path: '/signup',
+      name: 'signup',
+      component: () => import('../views/SignupView.vue'),
+      meta: {
+        auth: false,
+      },
+    },
+    {
       path: '/dashboard',
       name: 'dashboard',
       component: () => import('../views/DashboardView.vue'),
@@ -29,14 +37,14 @@ const router = createRouter({
   ],
 })
 
-router.beforeEach((to, from, next) => {
-  const authStore = useAuthStore()
+router.beforeEach(async (to, from, next) => {
+  const session = await fetchAuthSession()
 
   // if there is a meta tag and auth is false then let them through. Otherwise, check if they are authenticated.
   if (to.meta.auth === false) {
     next()
   } else {
-    if (authStore.authenticated) {
+    if (session?.tokens?.idToken) {
       next()
     } else {
       next({ name: 'home' })
